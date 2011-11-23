@@ -31,13 +31,10 @@ import au.com.funkworks.jmp.MiniProfiler.Step;
 @Aspect
 public class MiniProfilerAspect {
 
-	//@Pointcut(value="execution(public * *(..))")
-	//@Pointcut("execution(* au.com.funkworks.fc..*.*(..))")
 	@Pointcut(value="execution(public * *(..))")
 	public void anyPublicMethod() {
 	}
  
-	//@Around("execution(* au.com.truelocal.service.BusinessManagerService.*(..))")
 	@Around("anyPublicMethod() && @annotation(profile)")
 	public Object profile(ProceedingJoinPoint pjp, Profile profile) throws Throwable {		
 		Step step = MiniProfiler.step(profile.description());
