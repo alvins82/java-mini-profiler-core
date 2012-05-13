@@ -3,7 +3,7 @@
 
 	<groupId>au.com.funkworks.jmp</groupId>
 	<artifactId>java-mini-profiler-core</artifactId>
-	<version>0.2</version>
+	<version>0.6</version>
 	<packaging>jar</packaging>
 	<name>java-mini-profiler-core</name>
 
