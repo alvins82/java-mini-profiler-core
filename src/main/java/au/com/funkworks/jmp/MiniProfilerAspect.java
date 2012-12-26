@@ -34,10 +34,14 @@ public class MiniProfilerAspect {
 	@Pointcut(value="execution(public * *(..))")
 	public void anyPublicMethod() {
 	}
- 
+	
 	@Around("anyPublicMethod() && @annotation(profile)")
-	public Object profile(ProceedingJoinPoint pjp, Profile profile) throws Throwable {		
-		Step step = MiniProfiler.step(profile.description());
+	public Object profile(ProceedingJoinPoint pjp, Profile profile) throws Throwable {
+		String desc = profile.value();
+		if (desc == null || desc.equals("")) {
+			desc = pjp.getSignature().toShortString();
+		}
+		Step step = MiniProfiler.step(desc);
 		try {
 			return pjp.proceed();
 		} finally {

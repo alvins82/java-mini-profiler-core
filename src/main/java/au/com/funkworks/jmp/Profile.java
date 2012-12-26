@@ -30,6 +30,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface Profile {
 
-	String description();
+	String value() default "";
 	
 }
