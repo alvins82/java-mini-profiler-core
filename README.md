@@ -4,7 +4,7 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 
 ## Quick start
 
-1. Add the following repo/dependencies to your maven pom -
+1\. Add the following repo/dependencies to your maven pom -
 
 ```xml
 	<dependency>
@@ -19,7 +19,7 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 	</repository>
 ```
 
-2. Add to your web.xml the servlet and filter.
+2\. Add to your web.xml the servlet and filter.
 
 ```xml
 	<servlet>
@@ -41,13 +41,13 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 	</filter-mapping>
 ```
 
-3. Add somewhere in your jsp (if not using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute) 
+3\. Add somewhere in your jsp. If **not** using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute) 
 
 ```
 	${mini_profile_includes}
 ```
 
-4. Add some code to profile using the syntax below.
+4\. Add some code to profile using the syntax below.
 
 ```java
 
@@ -58,7 +58,7 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 	step.close();
 ```
 
-5. Load your web-application and watch the profile in the top left corner as shown below. 
+5\. Load your web-application and watch the profile in the top left corner as shown below. 
 
 ### Optional
 
