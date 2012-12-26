@@ -62,11 +62,11 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 
 ### Optional
 
-*SQL Profiling*
+**SQL Profiling**
 
-*JSP Profiling*
+**JSP Profiling**
 
-*AOP Public Method Profiling*
+**AOP Public Method Profiling**
 
 ## Features
 
