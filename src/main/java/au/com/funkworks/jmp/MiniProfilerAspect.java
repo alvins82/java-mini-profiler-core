@@ -40,6 +40,12 @@ public class MiniProfilerAspect {
 		String desc = profile.value();
 		if (desc == null || desc.equals("")) {
 			desc = pjp.getSignature().toShortString();
+			
+			if (desc.endsWith("()")) {
+				desc = desc.substring(0, desc.length()-2);
+			} else if (desc.endsWith("(..)")) {
+				desc = desc.substring(0, desc.length()-4);
+			}
 		}
 		Step step = MiniProfiler.step(desc);
 		try {
