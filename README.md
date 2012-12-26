@@ -1,15 +1,49 @@
 # Java Mini Profiler1
 
-JMP is a mini-profiler inspired by [mvc-mini-profile](http://miniprofiler.com/) (and Jeff Atwoods [blog post](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html_) and made for Java.
-A large portion of the code has been forked from [gae-mini-profiler](https://github.com/jriecken/gae-java-mini-profiler) and optimized for non-gae use.
+JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofiler.com/) (and Jeff Atwoods [blog post](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html)\).
 
 ## Quick start
 
-* [Download the latest release](https://github.com/twitter/bootstrap/zipball/master).
-* Clone the repo: `git clone git://github.com/twitter/bootstrap.git`.
-* Install with Twitter's [Bower](http://twitter.github.com/bower): `bower install bootstrap`.
+* Add the following repo/dependencies to your maven pom -
+
+	<repository>
+    	<id>alvins-releases</id>
+    	<url>https://github.com/alvins82/mvn-repo/raw/master/releases</url>
+	</repository>
+
+	<dependency>
+		<groupId>au.com.funkworks.jmp</groupId>
+		<artifactId>java-mini-profiler-web</artifactId>
+		<version>0.6</version>
+	</dependency>	
+
+* Add somewhere in your jsp (if not using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute) 
+
+	${mini_profile_includes}
+
+* Add to your web.xml the servlet and filter.
+
+	<servlet>
+		<servlet-name>miniprofiler</servlet-name>
+		<servlet-class>au.com.funkworks.jmp.MiniProfilerServlet</servlet-class>		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>miniprofiler</servlet-name>
+		<url-pattern>/java_mini_profile/*</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>miniprofiler-filter</filter-name>		 
+		<filter-class>au.com.funkworks.jmp.MiniProfilerFilter</filter-class>				
+	</filter>
+	<filter-mapping>
+		<filter-name>miniprofiler-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 
 ## Features
+
+
 
 ## Dependencies
