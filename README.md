@@ -4,28 +4,22 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 
 ## Quick start
 
-* Add the following repo/dependencies to your maven pom -
+1. Add the following repo/dependencies to your maven pom -
 
 ```xml
-	<repository>
-    	<id>alvins-releases</id>
-    	<url>https://github.com/alvins82/mvn-repo/raw/master/releases</url>
-	</repository>
-
 	<dependency>
 		<groupId>au.com.funkworks.jmp</groupId>
 		<artifactId>java-mini-profiler-web</artifactId>
 		<version>0.6</version>
 	</dependency>	
+
+	<repository>
+    	<id>alvins-releases</id>
+    	<url>https://github.com/alvins82/mvn-repo/raw/master/releases</url>
+	</repository>
 ```
 
-* Add somewhere in your jsp (if not using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute) 
-
-```
-	${mini_profile_includes}
-```
-
-* Add to your web.xml the servlet and filter.
+2. Add to your web.xml the servlet and filter.
 
 ```xml
 	<servlet>
@@ -46,6 +40,33 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 ```
+
+3. Add somewhere in your jsp (if not using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute) 
+
+```
+	${mini_profile_includes}
+```
+
+4. Add some code to profile using the syntax below.
+
+```java
+
+	Step step = MiniProfiler.step("Some things happening");
+	...	
+	// do some work	
+	...
+	step.close();
+```
+
+5. Load your web-application and watch the profile in the top left corner as shown below. 
+
+### Optional
+
+*SQL Profiling*
+
+*JSP Profiling*
+
+*AOP Public Method Profiling*
 
 ## Features
 
