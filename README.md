@@ -1,4 +1,4 @@
-# Java Mini Profiler1
+# Java Mini Profiler
 
 JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofiler.com/) (and Jeff Atwoods [blog post](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html)\).
 
@@ -6,6 +6,7 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 
 * Add the following repo/dependencies to your maven pom -
 
+```xml
 	<repository>
     	<id>alvins-releases</id>
     	<url>https://github.com/alvins82/mvn-repo/raw/master/releases</url>
@@ -16,13 +17,17 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 		<artifactId>java-mini-profiler-web</artifactId>
 		<version>0.6</version>
 	</dependency>	
+```
 
 * Add somewhere in your jsp (if not using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute) 
 
+```
 	${mini_profile_includes}
+```
 
 * Add to your web.xml the servlet and filter.
 
+```xml
 	<servlet>
 		<servlet-name>miniprofiler</servlet-name>
 		<servlet-class>au.com.funkworks.jmp.MiniProfilerServlet</servlet-class>		
@@ -40,7 +45,7 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 		<filter-name>miniprofiler-filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+```
 
 ## Features
 
