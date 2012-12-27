@@ -21,36 +21,15 @@
  */
 package au.com.funkworks.jmp;
 
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@Aspect
-public class MiniProfilerAspect {
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface Profiler {
 
-	@Pointcut(value="execution(public * *(..))")
-	public void anyPublicMethod() {
-	}
-	
-	@Around("anyPublicMethod() && @annotation(profiler)")
-	public Object profiler(ProceedingJoinPoint pjp, Profiler profiler) throws Throwable {
-		String desc = profiler.value();
-		if (desc == null || desc.equals("")) {
-			desc = pjp.getSignature().toShortString();
-			
-			if (desc.endsWith("()")) {
-				desc = desc.substring(0, desc.length()-2);
-			} else if (desc.endsWith("(..)")) {
-				desc = desc.substring(0, desc.length()-4);
-			}
-		}
-		Step step = MiniProfiler.step(desc);
-		try {
-			return pjp.proceed();
-		} finally {
-		  step.close();
-		}		
-	}
+	String value() default "";
 	
 }

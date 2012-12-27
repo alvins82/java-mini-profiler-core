@@ -1,6 +1,6 @@
 # Java Mini Profiler
 
-JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofiler.com/) (and Jeff Atwoods [blog post](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html)\).
+JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofiler.com/) (and Jeff Atwood's [blog post](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html)\).
 
 ## Quick start
 
@@ -41,7 +41,7 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 	</filter-mapping>
 ```
 
-3\. Add somewhere in your jsp. If **not** using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute) 
+3\. Add somewhere in your jsp. 
 
 ```
 	${mini_profile_includes}
@@ -70,6 +70,6 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 
 ## Features
 
-
+If **not** using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute)
 
 ## Dependencies
