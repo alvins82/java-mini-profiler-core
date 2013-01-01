@@ -176,12 +176,10 @@ You also need to enable AOP if not already enabled.
 2\. Another option is to use the @Profiler annotation - simply annotate your method as below.
 
 ```java
-
 	@Profiler
 	public void yourMethod() {
 		// do some things
 	}
-	
 ```
 
 You also need to enable this aspect by including a spring context in your web.xml.
