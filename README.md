@@ -64,7 +64,9 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 
 **SQL Profiling**
 
-1. Include the following in your maven to include the sql dependency.
+This allows you to see how long your queries are taking and the actual query itself. This is implemented using a JDBC data-source proxy.
+
+1\. Include the following in your maven to include the sql dependency.
 
 ```xml
 	<dependency>
@@ -74,7 +76,7 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 	</dependency>	
 ```
 
-2. Configure the original dataSource so it is wrapped by au.com.funkworks.jmp.SqlRecordDataSource. Example shown below. 
+2\. Configure the original dataSource so it is wrapped by au.com.funkworks.jmp.SqlRecordDataSource. Example shown below. 
 
 ```xml
 	<jee:jndi-lookup id="dataSourceActual" jndi-name="java:comp/env/jdbc/dataSource" />
@@ -94,13 +96,13 @@ JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofil
 
 It is often beneficial to profile around jsp statements. A good example is when you are using Spring's Open Session In View (OSIV) pattern.
 
-1. Include the following taglib in your JSP.
+1\. Include the following taglib in your JSP.
 
 ```xml
 	<%@ taglib prefix="profiler" uri="http://www.funkworks.com.au/tags/jmp" %>
 ```
 
-2. Use the jmp tag to profile around bits of JSP code.
+2\. Use the jmp tag to profile around bits of JSP code.
 
 ```xml
 <profiler:jmp description="Profiling some jsp code">
@@ -114,13 +116,9 @@ jsp stuff here...
 
 The real power of JMP comes alive with the use of aspect oriented programming. To enable AOP profiling ensure aop is enabled.
 
-```xml
-
-``` 
-
 There are two options available.
 
-1. The first options is to profile around all public methods of your project - this is the most powerful option and gives the most benefit.
+1\. The first options is to profile around all public methods of your project - this is the most powerful option and gives the most benefit.
 
 To use it - create an aspect class in your project - an example is shown below. 
 
@@ -172,12 +170,10 @@ public class JMPFullAspect {
 You also need to enable AOP if not already enabled.
 
 ```xml
-
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
-	
 ```
  
-2. Another option is to use the @Profiler annotation - simply annotate your method as below.
+2\. Another option is to use the @Profiler annotation - simply annotate your method as below.
 
 ```java
 
@@ -200,8 +196,7 @@ You also need to enable this aspect by including a spring context in your web.xm
 	</context-param>
 ```
 
-## Features
+## Notes
 
-If **not** using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute)
-
-## Dependencies
+- If **not** using jsp/jstl - the 'mini_profile_includes' attribute is set on request object via setAttribute)
+- jQuery is required to be loaded before including '${mini_profile_includes}' in your JSP.
