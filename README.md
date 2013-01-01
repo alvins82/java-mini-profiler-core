@@ -2,6 +2,8 @@
 
 JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofiler.com/) (and Jeff Atwood's [blog post](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html)\).
 
+[[screenshot1.png]]
+
 ## Quick start
 
 1\. Add the following repo/dependencies to your maven pom -
