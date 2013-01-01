@@ -2,7 +2,7 @@
 
 JMP is a mini-profiler for Java inspired by [mvc-mini-profile](http://miniprofiler.com/) (and Jeff Atwood's [blog post](http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html)\).
 
-![[/screenshot1.png]]
+![ScreenShot](https://raw.github.com/alvins82/java-mini-profiler-core/master/screenshot1.png)
 
 ## Quick start
 
